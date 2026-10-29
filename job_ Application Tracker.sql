@@ -1,15 +1,3 @@
--- JOB APPLICATION TRACKER: ALL-IN-ONE MYSQL SCRIPT
--- Includes schema, sample data, queries, and index.
--- Run in MySQL Workbench.
---
--- IMPORTANT:
--- 1) The table creation statements use CREATE TABLE IF NOT EXISTS.
--- 2) Sample INSERT statements will add duplicate sample rows if run repeatedly.
---    Run this script once on a fresh project database, or skip the SAMPLE DATA
---    section if you have already inserted the sample records.
--- 3) The CREATE INDEX statement is guarded by a check so it can be rerun safely.
-
--- ==================== 1. DATABASE SCHEMA ====================
 CREATE DATABASE IF NOT EXISTS JobTracker;
 USE JobTracker;
 
@@ -116,7 +104,7 @@ INSERT INTO Application_Skills (application_id, skill_id) VALUES
 -- ==================== 3. PROJECT QUERIES ====================
 USE JobTracker;
 
--- BUILT-IN FUNCTIONS
+
 
 -- 1. Count all applications
 SELECT COUNT(*) AS total_applications
@@ -135,7 +123,7 @@ FROM Job_Postings;
 SELECT UPPER(company_name) AS company_name_upper
 FROM Companies;
 
--- JOINS
+
 
 -- 5. Applications with company and job details
 SELECT a.application_id, c.company_name, j.job_title,
@@ -225,7 +213,6 @@ WHERE application_date BETWEEN '2026-10-15' AND '2026-10-19';
 -- SHOW INDEX FROM Applications;
 
 
--- ==================== 4. INDEX ====================
 -- Create the index only if it does not already exist.
 SET @idx_exists = (
     SELECT COUNT(*)
